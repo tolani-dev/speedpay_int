@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+<style type="text/css">
+	
+	/* #nav{
+	background-color: #271f64;
+	
+}
+
+
+.navbar{
+	border: 2px solid rgb(39, 31, 48);
+
+}
+
+.nav-link{
+	color:#f8f8fe;
+	font-size: 20px;
+}
+
+.sticky{
+	position: sticky;
+	top: 0vh;
+	z-index: 1;
+	background-color: white;
+} */
+
+	
+	/* #doctor{
+		 width:30%; 
+		 height: 400px;
+		 background-color:white;
+		 position: absolute;
+		 bottom: 127px;
+		 right: 431px;
+		 padding: 30px;
+	}
+	#picture{
+		position: relative;
+		right: 50px;
+		top: 100px;
+	}
+	#doctorsrow{
+		position: relative;
+		left: 200px;
+	}
+
+	.bio{
+		margin-left: 140px;
+		border: 2px solid rgb(230, 230, 230);
+	}
+    .innernav{
+        background-color: beige;
+		
+		padding: 20px; */
+		/* margin: 10px;
+		text-align: center;
+		border-radius: 35%;
+    }
+
+    .lists{
+        padding: 100px;
+        text-decoration: none;
+        font-size: large;
+    
+    }
+
+    .chat_image{
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    #chatdiv{
+        background-color: white;
+        box-shadow: 2px 2px 7px 3px;
+        
+    }
+
+    .rowshadow{
+        box-shadow: 2px 2px 2px 2px;
+    }
+
+    .htag{
+        margin-left: 80px;
+    } */
+
+	/* new layout here */
+	.topdiv{
+	background-color: #001030;
+	height: 80px;
+	padding: 20px;
+}
+#logout{
+	text-decoration: none;
+	background-color: #BCDE85;
+	padding: 15px;
+	position: relative;
+	left: 500px;
+	border-radius: 20%;
+}
+.sideeach{
+	padding: 25px;
+	border-bottom: 1px solid white;
+	text-decoration: none;
+
+}
+#namearea{
+	color: #BCDE85;
+}
+
+.bartext{
+	color: #BCDE85;
+	margin-right: 15px;
+}
+
+.aref{
+	text-decoration: none;
+}
+/* layout ends here */
+#smallpro{
+	position: relative;
+	bottom: 100px;
+}
+
+#intro{
+	position: relative;
+	bottom:70px
+}
+
+#profile{
+	position: relative;
+	left: 130px;
+	top:40px;
+	background-color: white;
+	box-shadow: 5px 4px 15px #BCDE85;
+
+}
+#sign1{
+	position: relative;
+	width: 80%;
+	padding: 30px;
+	left:100px;
+	top:30px;
+	box-shadow: 2px 4px 5px
+}
+.formup{
+	font-weight: bold;
+	margin-bottom: 7px;
+	margin-top: px;
+}
+.inputup{
+	border: 4px solid #BCDE85;
+	/* width: 70%; */
+	border-radius: 10px;
+}
+
+#next1{
+	background-color: #001140;
+	color:#BCDE85;
+	padding: 5px;
+	width: 120px;
+	border-radius: 10px;
+}
+
+#about, #philosophy{
+	display: none;
+}
+.portfolio{
+	text-align: justify;
+	margin-left: 30px;
+	box-shadow: 2px 2px 3px;
+	border-bottom-left-radius: 70px;
+	border-top-right-radius: 70px;
+	padding: 30px;
+	background-color: whitesmoke;
+}
+#highlight{
+	position: relative;
+	left: 90px;
+	background-color: #BCDE85;
+	box-shadow: 2px 2px 4px;
+	padding: 50px;
+	border-bottom-left-radius: 70px;
+	border-top-right-radius: 70px;
+}
+
+#read1,#read2,#backread2,#backread3{
+	background-color: #001030;
+	color:#BCDE85;
+	border-radius: 10px;
+	padding: 5px;
+}
+.imglayout{
+    width:100px;
+    height:100px ;
+    border-radius: 50%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+/* post article */
+#art_head{
+	color: #001030;
+	text-align: center;
+
+}
+#btn1{
+	background-color: #001030;
+	color:#BCDE85;
+	padding: 5px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+#chat1{
+	position: relative;
+	left:300px
+}
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row topdiv">
+			<div class="col-md">
+	  <div id="namearea">
+		<h3>MED <span>24</span></h3>
+	  </div>
+	</div>
+	  <div class="col-md">
+		  <div>
+		<a href="{{url_for('doc_logout')}}" id="logout">Logout</a>
+	  </div>
+	  </div>
+	
+		</div>
+		<!-- 1st div -->
+		
+		<div class="row">
+			<div class="col-md-2" style="background-color:#001040; min-height: 700px;">
+				<div class="mobile_nav">
+					  <div class="nav_bar">
+					<img class="imglayout" src="static/uploads/{{doc.dr_image}}" alt="profile">
+					  </div>
+					  <div class="sidebar mt-4">
+						  <ul type="none">
+						<li class="sideeach"><a href="{{url_for('doctor_profile')}}" class="aref"><i class="fa fa-desktop bartext" aria-hidden="true"></i><span>Dashboard</span></a></li>
+						<li class="sideeach"><a href="{{url_for('doctor_overview')}}"class="aref"><i class="fa-solid fa-user-doctor bartext"></i><span>View Profile</span></a></li>
+						<li class="sideeach"><a href="{{url_for('doctor_update')}}" class="aref"><i class="fa-solid fa-comments bartext"></i><span>Edit Profile</span></a></li>
+						<li class="sideeach"><a href="{{url_for('doc_chat_room')}}" class="aref"><i class="fa-solid fa-file-pen bartext"></i><span>Chat room</span></a></li>
+						<li class="sideeach"><a href="{{url_for('post_article')}}" class="aref"><i class="fas fa-info-circle bartext bartext"></i><span>Post Aricle</span></a></li>
+						<li class="sideeach"><a href="{{url_for('view_article')}}" class="aref"><i class="fas fa-sliders-h bartext bartext"></i><span>View Article</span></a></li>
+					</ul>
+					  </div>
+				</div>
+	
+			</div>
+			<div class="col-md-8">
+		{% block doctor%}
+	
+		{% endblock doctor%}
+	
+			</div>
+		</div>
+	<ul>
+		
+	</ul>
+	
+	</div>  <!--container closing-->
+<!--js query this has to come first when using jquery-->
+
+<script type="text/javascript" language="javascript" src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+	<script type="text/javascript" language="javascript" src="/static/bootstrap/js/jquery.min.js"></script>
+
+{% block js%}
+
+{% endblock js%}
+	<!-- js internal -->
+	<script type="text/javascript" language="javascript">
+		//  check if dom is loaded
+		$(document).ready(function(){
+			$('#read1').click(function(){
+				$('#about').show()
+				$('#about').addClass('animate__animated animate__slideInDown')
+				$('#overview').hide()
+			});
+
+			$('#read2').click(function(){
+				$('#philosophy').show()
+				$('#philosophy').addClass('animate__animated animate__slideInLeft')
+				$('#about').hide()
+			});
+
+			$('#backread2').click(function(){
+				$('#overview').show()
+				$('#overview').addClass('animate__animated animate__slideInUp')
+				$('#about').hide()
+			});
+
+			$('#backread3').click(function(){
+				$('#about').show()
+				$('#about').addClass('animate__animated animate__slideInLeft')
+				$('#philosophy').hide()
+			});
+
+
+			$('#state').change(function(){
+		var selected_state=$(this).val()
+		var data2send={'state':selected_state}
+
+		$.ajax({
+			url:"{{url_for('getlga')}}",
+			type:'get',
+			data:data2send,
+			dataType:'text',
+			success:function(msg){
+				$('#lga').html(msg)
+			},
+			error:function(err){
+			console.log(err)
+			},
+			beforeSend(){
+				$('button').html('please wait')
+			}
+
+
+			})
+
+	})	
+
+	$('#btn1').click(function(){
+    var data2send = $('#myform1').serialize()       
+    $.ajax({
+    url:"/article/{{posty.article_id}}",
+    data:data2send,
+    type:'post',
+    dataType:'json',
+    beforeSend:function(){
+        $('.btn1').html('Please wait.')
+    },
+    success:function(response){ //if response is an object 
+        //response['comment'] and response['madeby']
+        $('#allcomments1').append("<p style='font-family:Courier New;color:blue'>"+response['comment']+"</p><span>Made By"+response['madeby']+"</span>")
+        $('#comment1').val('')
+        $('.btn1').html('Send Comment')
+    },
+    error:function(errmsg){
+        console.log(errmsg)
+        $('.btn1').html('Send Comment')
+    }
+    
+    })
+})
+	
+$('#btn').click(function(){
+        var data2send = $('#myform').serialize()       
+        $.ajax({
+        url:"/docchats/{{pat.p_id}}",
+        data:data2send,
+        type:'post',
+        dataType:'json',
+        beforeSend:function(){
+            $('.btn').html('Please wait.')
+        },
+        success:function(response){ //if response is an object 
+            //response['comment'] and response['madeby']
+            $('#allmessage').append("<p style='font-family:Courier New;color:blue'>"+response['comment']+"</p><span>Made By"+response['chatby']+"</span>")
+            $('#comment').val('')
+			
+            $('.btn').html('Send Comment')
+        },
+        error:function(errmsg){
+            console.log(errmsg)
+            $('.btn').html('Send Comment')
+        }
+        
+        })
+    })
+
+		}); // closing for the jquery
+	</script>
+	
+</body>
+</html>

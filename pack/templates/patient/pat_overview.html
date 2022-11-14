@@ -1,0 +1,52 @@
+{% extends "patient/layout_pat.html"%}	
+    
+{% block patient%}
+	<div class="row mt-3 whole" style=" width: 90%; background-color:white; border-radius:10px">
+		<div class="col mt-5 pl-5">
+			<img src="/static/uploads/{{data.p_image}}" style="border-radius:50%; width:280px; height:280px"><br><br>
+			
+			
+			{{pat_logged}}
+		</div>
+		<div class="col mt-5">
+			<p style="font-size: 20px; font-weight: bold;">{{data.p_fname}} {{data.p_lname}}</p>
+			<p style="font-size: 20px; font-weight: bold;">{{data.p_false}}</p>
+			<p style="font-size: 20px; font-weight: bold;">{{data.p_dob}}</p>
+			<p style="font-size: 20px; font-weight: lighter;">Joined {{data.p_reg}}</p>
+			<span>Lagos,</span>
+			<span>Lagos,</span>
+			<span>Nigeria.</span>
+		</div>
+	</div>
+
+	<div class="row mt-3 whole" style=" width: 90%; background-color:white; border-radius:10px";>
+		<p>SPECIALITY</p>
+		<div class="col-2">
+			<a href=""><img src="/static/images/primary.png" class="find"></a>
+			<span>PRIMARY CARE</span>
+		</div>
+		<div class="col-2">
+			<a href=""><img src="/static/images/ob.png" class="find"></a>
+			<span>GYNECOLOGISTS</span>
+		</div>
+		<div class="col-2">
+			<a href=""><img src="/static/images/pedy.png" class="find"></a>
+			<span>PEDIATRICIANS</span>
+		</div>
+		<div class="col-2">
+			<a href=""><img src="/static/images/ther.png" class="find"></a>
+			<span>THERAPISTS</span>
+		</div>
+		<div class="col-2">
+			<a href=""><img src="/static/images/den.png" class="find"></a>
+			<span>DENTISTS</span>
+		</div>
+		<div class="col-2">
+			<a href=""><img src="/static/images/opto.png" class="find"></a>
+			<span>OPTOMETRISTS</span>
+		</div>
+	</div>
+
+</div>
+	
+{% endblock patient%}

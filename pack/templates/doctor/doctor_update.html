@@ -1,0 +1,45 @@
+{% extends "doctor/layout_doc.html"%}
+{% block doctor%}
+
+
+<div class="sign" id="sign1">
+    {% for i in msg%}
+    {{i}}
+    {% endfor%}
+    <form action="" method="post" enctype="multipart/form-data">
+    <label class="form-label formup">firstname</label>
+    <input type="text" name="firstname" value="{{update.dr_fname}}"  class="form-control inputup">
+    <label class="form-label formup">lastname</label>
+    <input type="text" name="lastname" value="{{update.dr_lname}}" class="form-control inputup">
+    <label class="form-label formup">State</label>
+    <select class="form-control" name="state" id="state">
+        {% if states%}
+        {% for s in states%}
+        <option value="{{s.state_id}}">{{s.state_name}}</option>
+        {%endfor%}
+        {% endif %}
+    </select>
+    <select class="form-control" id="lga">
+       
+    </select>
+
+    <label class="form-label formup">About you</label>
+    <textarea name="about"  value="{{update.about}}" class="form-control inputup"></textarea>
+    <label class="form-label formup">Quick summarry</label>
+    <textarea name="summary"  value="{{update.summary}}" class="form-control inputup"></textarea>
+    <label class="form-label formup">Care philosophy</label>
+    <textarea name="care" value="{{update.philosophy}}" class="form-control inputup"></textarea><br>
+    <input type="file" name="pix" value="{{update.dr_image}}">
+    <button id="next1">Update</button>
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    </form>
+    </div>
+{%endblock%}
+
+<!-- {% block js%}
+<script type="text/javascript">
+    $(document).ready(function(){
+	
+})
+</script>
+{% endblock js%} -->

@@ -1,0 +1,31 @@
+{% extends "admin/layout_ad.html"%}
+
+{% block admin%}
+	<div class="row tainer">
+        <div class="col-5" id="doc">
+            <div class="row" id="innerdoc">
+                <div class="col">
+                    <p style="font-weight: bold; font-size: 30px;">NO OF DOCTORS</p>
+                </div>
+                <div class="col">
+                    <p style="font-weight: bold; font-size: 80px; color:#001030; text-shadow: 2px 4px #BCDE85;">{{totaldoc|count}}</p>
+                </div>
+                <a href="{{url_for('all_doctor')}}"><button>view all</button></a>
+            </div>
+        </div>
+
+        <div class="col-5" id="pat">
+            <div class="row"id="innerpat">
+                <div class="col">
+                    <p style="font-weight: bold; font-size: 30px;" >NO OF PATIENT</p>
+                </div>
+                <div class="col">
+                    <p style="font-weight: bold; font-size: 80px; color:#001030; text-shadow: 2px 4px #BCDE85;">{{totalpat|count}}</p>
+                </div>
+                <a href="{{url_for('all_patient')}}"><button>view all</button></a>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock admin%}

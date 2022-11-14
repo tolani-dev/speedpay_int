@@ -1,0 +1,41 @@
+{% extends "admin/layout_ad.html"%}
+{% block admin%}
+<h3>ALL REGISTER DOCTOR</h3>
+
+
+<hr>
+{% if all_pat%}
+<div class="row">
+    <div class="col">
+        <table class="table table_stripped">
+        <tr>
+            <th>S/N</th>
+            <th>image</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>chat name</th>
+            <th>phone</th>
+            <th>registration date</th>
+        </tr> 
+
+            {%for x in all_pat%}
+        <tr> 
+            <td>{{loop.index}}</td>
+            <td><img src="/static/uploads/{{x.p_image}}" height="100" width="100" style="border-radius: 40%;"></td>
+            <td>{{x.p_fname}}</td>
+            <td>{{x.p_lname}}</td>
+            <td>{{x.p_email}}</td>
+            <td>{{x.p_phone}}</td>
+            <td>{{x.p_dob}}</td>
+            <td><a href="/delete/{{x.p_id}}" onclick="return confirm('are you sure you want to delete this user')"><button>DELETE</button></a></td>
+
+        </tr> 
+        
+        {%endfor%}
+        </table>
+        
+    </div>
+</div>
+{%endif%}
+
+{% endblock admin%}

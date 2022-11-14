@@ -1,0 +1,293 @@
+{% set msg=get_flashed_messages()%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/animate.min.css">
+<style type="text/css">
+		#sign1{
+		width: 500px;
+		position: relative;
+		left: 90px;
+		top: 100px;
+		padding: 50px;
+		box-shadow: 2px 2px 2px 2px;
+	}
+
+		#sign2,#sign3{
+		display: none;
+		width: 500px;
+		background-color: ;
+		position: relative;
+		left: 90px;
+		top: 100px;
+		padding: 50px;
+		box-shadow: 2px 2px 2px 2px;
+	}
+
+	#nav{
+	background-color: rgb(255, 255, 255);
+	height: 80px;
+	background-color: #001030;
+	
+}
+
+.navbar{
+	border: 2px solid rgb(39, 31, 48);
+
+
+}
+
+.nav-link{
+	color:#f8f8fe;
+	font-size: 20px;
+	color: #BCFF85;
+	box-shadow: 2px 3px #BCFF85;
+}
+
+.sticky{
+	position: sticky;
+	top: 0vh;
+	z-index: 1;
+	background-color: white;
+}
+ #divcon{ 
+ 	height:600px; 
+ 	width:900px;
+ 	box-shadow: 2px 2px 2px 2px;
+
+ }
+
+  #docbg{
+ 	background-image: url(/static/images/docpic3.jpg);
+ 	/*background-repeat: no-repeat;*/
+ 	background-size: cover;
+ 	background-position: center;
+ 	position: relative;
+ 	left: 10px;
+ }
+
+ #formdiv{
+ 	padding-top: 50px;
+ }
+
+  #next1,#next2{
+ 	background-color: #271F64;
+ 	border-radius: 15px;
+ 	padding: 10px;
+ 	color: white;
+ 	width: 100px;
+ }
+
+ #back2,#back3{
+ 	background-color: #BCDE85;
+ 	border-radius: 15px;
+ 	padding: 10px;
+ 	color: white;
+ 	width: 100px;
+ }
+</style>
+</head>
+<body>
+<div class="container">
+
+		<div class="row sticky">
+		<div class="col">
+			<!-- nav -->
+	<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid" id="nav">
+    <a class="navbar-brand px-5" href="{{url_for('home')}}" style="background-color: #BCFF85;">MED 24</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active px-5" aria-current="page" href="#">Services</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link px-5" href="#">Article</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-5">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn" style="background-color: #007ea7;" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+		</div>
+	</div>
+	<div class="row" id="formdiv">
+				<div class="col-6" id="docbg">
+			
+		</div>
+
+
+		<div class="col-6">
+			<!-- <div class="sign"> -->
+				<div id="divcon">
+			<form action="" method="post" id="doctorform">
+<!-- 				<div id="sign0">
+				<label class="form-label">email</label><br>
+				<input type="text" name="email address" placeholder="Enter email" class="form-control"><br>
+				<label class="form-label">password</label><br>
+				<input id="pass" type="password" name="fullname" placeholder="Enter password" class="form-control"><br>
+				<p id="show">show password</p>
+				<button type="submit" class="btn btn-primary" id="loginbtn">login</button>
+				<button type="button" class="btn btn-dark" id="signupbtn">Sign up</button>
+				</div> -->
+				<div class="sign" id="sign1">
+					{% if msg%}
+					{% for m in msg%}
+					<div class="alert alert-info">{{m}}</div>
+					{% endfor%}
+					{% endif %}
+					<label class="form-label">firstname</label>
+					<input type="text" name="firstname" placeholder="Enter firstname" class="form-control">
+					<label class="form-label">lastname</label>
+					<input type="text" name="lastname" placeholder="Enter lastname" class="form-control">
+					<label class="form-label">Speciality</label>
+					
+					<select name="spec" class="form-control">
+						<!-- {% if speca%}
+						{% for s in speca%}
+						<option value="{{speca.speciality_name}}">Gynecologist
+							{% endfor%}
+							{% endif%}
+						</option> -->
+						<option value="1">Gynecologist</option>
+						<option value="2">Pediatricain</option>
+						<option value="3">Opthamology</option>
+						<option value="4">Primary care</option>
+						<option value="5">Dentist</option>
+						<option value="6">Therapist</option>
+					</select>
+
+					<label class="form-label">license number</label>
+					<input type="number" name="license" placeholder="mdcn" class="form-control" id="pat1"><br>
+<!-- 					<button type="button" id="back1">back</button> -->
+					<button type="button"id="next1">Next</button>
+				</div>
+				<div class="sign" id="sign2" >
+					<label class="form-label">Email</label><br>
+					<input type="text" name="email" id="email" placeholder="feild cannot be empty" class="form-control">
+					<p class="alert-info" id="feedback"></p>
+					<label>password</label>
+					<input type="password" name="password1" class="form-control">
+					<label>confirm password</label>
+					<input type="password" name="password2" class="form-control">
+					<!-- <label class="form-label">Date of birth</label>
+					<input type="text" name="dob" placeholder="yyyy-mm-dd" class="form-control"><br> -->
+					<button type="button" id="back2">Back</button>
+					<button type="button" id="next2">next</button>
+				</div>
+
+				<div class="sign" id="sign3">
+					<label class="form-label">About you</label>
+					<textarea name="about" placeholder="I am a gentle and compassionate dentist. I am  a highly-rated dentist who is licensed to provide online care in Nigeria." class="form-control"></textarea>
+					<label class="form-label">Quick summarry</label>
+					<textarea name="summary" placeholder="Dr....graduated with a degree in Dentistry from united....,University School of Dental Medicine in 20..." class="form-control"></textarea>
+					<label class="form-label">Care philosophy</label>
+					<textarea name="care" placeholder="I believe that maintaining oral health is very important to a patient's overall well-being and health, while improving their quality of life" class="form-control"></textarea><br>
+
+
+				<button type="button" id="back3">Back</button>
+				<button type="submit" id="submitdoc">submit</button>
+				</div>
+
+				
+				<input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+			</form>
+		</div>
+	<!-- 	</div>  -->
+		</div>
+	
+</div>
+</div> <!-- closing div-->
+
+<!--js query this has to come first when using jquery-->
+	<script type="text/javascript" language="javascript" src="/static/bootstrap/js/jquery.min.js"></script>
+
+
+	<!-- js internal -->
+	<script type="text/javascript" language="javascript">
+		//  check if dom is loaded
+		$(document).ready(function(){
+	
+		// 		$('#show').click(function() {
+		// 	var passwordshow=$('#pass');
+		// 	if (passwordshow.attr('type')=='password'){
+		// 		passwordshow.attr('type','text')
+		// 	}else{
+		// 		passwordshow.attr('type','password')
+		// 	}
+		// });
+
+		// $('#signupbtn').click(function() {
+		// 	$('#sign1').show()
+		// 	$('#sign1').addClass('animate__animated animate__slideInDown')
+		// 	// $('#sign0').hide()
+		// });
+
+		$('#next1').click(function() {
+			$('#sign2').show()
+			$('#sign2').addClass('animate__animated animate__slideInDown')
+			$('#sign1').hide()
+		});
+
+		$('#next2').click(function() {
+			$('#sign3').show()
+			$('#sign3').addClass('animate__animated animate__slideInDown')
+			$('#sign2').hide()
+		});
+
+		$('#back3').click(function() {
+			$('#sign2').show()
+			$('#sign3').hide()
+		});
+
+		$('#back2').click(function() {
+			$('#sign1').show()
+			$('#sign1').addClass('animate__animated animate__slideInDown')
+			$('#sign2').hide()
+		});
+
+
+			$('#email').mouseout(function(){
+				var email=$('#email').val()
+				var csrf='{{csrf_token()}}'
+				var data2send={'email':email,'csrf_token':csrf}
+
+				$.ajax({
+					url:"/ajax/check_email",
+					data:data2send,
+					type:"post",
+					dataType:"text",
+					success:function(resp){
+					
+						$('#feedback').html(resp)
+					
+					},
+					beforeSend:function(){
+
+					},
+
+					error:function(error){
+						console.log(error)
+					},
+
+				})
+			});
+
+		}); // closing for the jquery
+	</script>
+	
+</body>
+</html>

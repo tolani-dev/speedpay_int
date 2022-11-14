@@ -1,0 +1,24 @@
+{% extends "patient/layout_pat.html"%}
+
+{% block patient%}
+<div class="sign" id="sign1">
+{% for i in msg%}
+{{i}}
+{% endfor%}
+<form action="" method="post" enctype="multipart/form-data">
+<label class="form-label formup">firstname</label>
+<input type="text" name="firstname" value="{{update.p_fname}}"class="form-control inputup">
+<label class="form-label formup">lastname</label>
+<input type="text" name="lastname" value="{{update.p_lname}}"class="form-control inputup">
+<label class="form-label formup">dob</label>
+<input type="text" name="dob" value="{{update.p_dob}}"class="form-control inputup">
+<label class="form-label formup">False Name</label>
+<input type="text" name="pfalse" value="{{update.p_false}}" class="form-control inputup">
+<label class="form-label formup">Phone Number</label>
+<input type="text" name="phone" value="{{update.p_phone}}" class="form-control inputup"><br>
+<input type="file" name="pix" value="{{update.p-image}}">
+<button id="next1">Update</button>
+<input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+</form>
+</div>
+{% endblock patient%}
