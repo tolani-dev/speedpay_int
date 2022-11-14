@@ -15,10 +15,11 @@ Transaction = [
        }
 ]
 
-cus=Transaction["customer_name"]
-bal=Transaction["13000"]
-email=Transaction["customer_email"]
-passw=Transaction["pwd"]
+for x in Transaction:
+    cus=x["customer_name"]
+    bal=x["balance"]
+    email=x["customer_email"]
+    passw=x["pwd"]
 
 
 #REGISTRATION
@@ -29,15 +30,15 @@ def registration():
         return 'DONE'
 
     else:
-        trans=db.session.execute(f"INSERT INTO transaction SET(customer_name={cus},balance={bal},customer_email={email},pwd={passw})")
+        trans=db.session.execute(f'INSERT INTO transaction(customer_name, balance,customer_email,pwd) VALUES("{cus}","{bal}", "{email}","{passw}")')
         db.session.commit()
-        return jsonify (trans)
+        return jsonify (Transaction)
 
 
 @app.route("/login",methods=['GET','POST'])
 def login():
     if request.method=='GET':
-        return render_template('user/user_login.html')
+        return "logged in succesful"
     else:
 
         record=db.session.query(Transaction).all()
@@ -66,8 +67,8 @@ def logout():
         return 'pass'
 
 #DEPOSITE
-@app.route("/update", methods=['POST','GET'])
-def update():
+@app.route("/deposite", methods=['POST','GET'])
+def deposite():
     if session.get('loggedin') !=None:
         if request.method=='GET':
             trans= db.session.query(Transaction).all()
