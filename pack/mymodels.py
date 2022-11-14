@@ -8,5 +8,5 @@ class Transaction(db.Model):
     balance = db.Column(db.Integer(), nullable=False)
     customer_email = db.Column(db.String(255), nullable=False)
     pwd = db.Column(db.String(255), nullable=False)
-    deposit = db.Column(db.Integer(), nullable=False)
+    deposit = db.Column(db.Integer(), nullable=True)
 

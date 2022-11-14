@@ -7,24 +7,31 @@ import datetime,os,random,string
 
 Transaction = [
 
-        {"customer_name": "tolani giwa"},
-        {"balance": "13000"},
-        {"customer_email": "Giwafauzziyyah@gmailcom"},
-        {"pwd": "1234t"},
-
+       {
+        "customer_name" :"tolani giwa",
+        "balance" :"13000",
+       "customer_email": "Giwafauzziyyah@gmailcom",
+       "pwd":"1234t",
+       }
 ]
+
+cus=Transaction["customer_name"]
+bal=Transaction["13000"]
+email=Transaction["customer_email"]
+passw=Transaction["pwd"]
 
 
 #REGISTRATION
 @app.route("/transaction",methods=['POST','GET'])
+@csrf.exempt
 def registration():
     if request.method=='GET':
         return 'DONE'
 
     else:
-        trans=db.session.execute( f"INSERT INT0 transaction VALUES(customer_name=Transaction["customer_name"], balance=Transaction["balance"], customer_email=Transaction["customer_email"],) ")
+        trans=db.session.execute(f"INSERT INTO transaction SET(customer_name={cus},balance={bal},customer_email={email},pwd={passw})")
         db.session.commit()
-        return 'succesfully register'
+        return jsonify (trans)
 
 
 @app.route("/login",methods=['GET','POST'])
@@ -33,7 +40,7 @@ def login():
         return render_template('user/user_login.html')
     else:
 
-        record=db.session.execute(f"SELECT * FROM transaction")
+        record=db.session.query(Transaction).all()
         if record and check_password_hash(record.pwd,record.pwd):
             userID=record.user_id
             session['loggedin']=userID
@@ -43,6 +50,12 @@ def login():
             flash(msg)
             return 'pass'
 
+@app.route("/balance",methods=['GET'])
+@csrf.exempt
+def balance():
+        trans=db.session.query(Transaction).filter(Transaction.customer_email==email,Transaction.balance==bal).first()
+
+        return 'your balance is ...'
 
 
 #LOGOUT
@@ -54,7 +67,7 @@ def logout():
 
 #DEPOSITE
 @app.route("/update", methods=['POST','GET'])
-def doctor_update():
+def update():
     if session.get('loggedin') !=None:
         if request.method=='GET':
             trans= db.session.query(Transaction).all()
